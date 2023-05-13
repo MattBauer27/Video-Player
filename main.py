@@ -113,12 +113,6 @@ class InitialWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle('Import Video')
-        self.resize(800, 600)  # Resize the window
-
-        instructionLabel = QLabel(
-            "Please click the below button to import the video that you wish to play.")
-        instructionLabel.setStyleSheet(
-            "color: #ddd;")  # Set the color of the text
 
         openButton = QPushButton("Import Video")
         openButton.setStyleSheet("""
@@ -126,10 +120,8 @@ class InitialWindow(QWidget):
                 border: 2px solid #555;
                 border-radius: 11px;
                 background-color: #555;
-                min-width: 200px;  # Make the button larger
-                min-height: 50px;  # Make the button larger
+                min-width: 80px;
                 color: #ddd;
-                font-size: 20px;  # Increase the font size
             }
 
             QPushButton:hover {
@@ -140,10 +132,7 @@ class InitialWindow(QWidget):
         openButton.clicked.connect(self.openFile)
 
         layout = QVBoxLayout()
-        # Add the instruction text
-        layout.addWidget(instructionLabel, alignment=Qt.AlignCenter)
-        # Center the button
-        layout.addWidget(openButton, alignment=Qt.AlignCenter)
+        layout.addWidget(openButton)
         self.setLayout(layout)
         self.setStyleSheet("Background-color: #333")
 
